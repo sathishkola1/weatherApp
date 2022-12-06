@@ -38,14 +38,14 @@ function getWeather(place) {
     .catch((error) => { console.log("Error fething data!", error) })
 }
 document.querySelector(".search button").addEventListener("click", function () {
+  document.querySelector(".weather").classList.add("loading")
   const place = document.querySelector(".search-bar").value
   getWeather(place)
 })
 
-document
-  .querySelector(".search-bar")
-  .addEventListener("keyup", function (event) {
+document.querySelector(".search-bar").addEventListener("keyup", function (event) {
     if (event.key == "Enter") {
+      document.querySelector(".weather").classList.add("loading")
       const place = document.querySelector(".search-bar").value
       getWeather(place)
     }
